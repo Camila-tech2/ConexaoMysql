@@ -28,7 +28,6 @@ use app\libraries\Agendamento;
 
         array_push($listaAgendamento, $a);
     }
-    
 
 
     $lista_json = json_encode($listaAgendamento);

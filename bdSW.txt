@@ -1,3 +1,6 @@
+CREATE DATABASE db_hospital;
+USE db_hospital;
+
 CREATE TABLE tbl_especialidade(
 nomeEspecialidade varchar(150) not null,
 numeroRegistro int not null,
