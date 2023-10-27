@@ -14,12 +14,14 @@ horaAgendamento varchar(5) not null,
 queixa varchar(150) not null,
 gravidade varchar(150) not null
 );
-
+ 
 CREATE TABLE tbl_consulta(
 numeroConsulta int not null,
 dataConsulta varchar(10) not null,
 horaConsulta varchar(5) not null,
-agendamentoConsulta varchar(150) not null
+agendamentoConsulta varchar(150) not null,
+pacienteConsulta int not null,
+medicoConsulta int not null
 );
 
 CREATE TABLE tbl_paciente(
@@ -55,11 +57,11 @@ INSERT INTO tbl_agendamento VALUES
 (145, '15/01/2024', '16:50', 'Chikungunya','Urgente');
 
 INSERT INTO tbl_consulta VALUES
-(1230, '23/10/2023', '12:30', 'Dor de cabeça'),
-(1587, '02/11/2023', '15:45', 'Perna quebrada'),
-(1649, '05/01/2024', '09:30', 'Câncer de pulmão'),
-(1258, '23/01/2024', '08:20', 'Hanseníase'),
-(1465, '15/01/2024', '16:50', 'Chikungunya');
+(1230, '23/10/2023', '12:30', 'Dor de cabeça',21 ,54),
+(1587, '02/11/2023', '15:45', 'Perna quebrada',34 ,55),
+(1649, '05/01/2024', '09:30', 'Câncer de pulmão',47 ,65),
+(1258, '23/01/2024', '08:20', 'Hanseníase',35 ,37),
+(1465, '15/01/2024', '16:50', 'Chikungunya',32 ,22);
 
 INSERT INTO tbl_paciente VALUES
 ('Richelle Souza','Rua Das Graças',11258749632,124,'Dores de cabeça contínua','Dipirona'),
