@@ -7,8 +7,6 @@ numeroRegistro int not null,
 publicoAlvo varchar(150) not null
 );
 
- 
-
 CREATE TABLE tbl_agendamento(
 numeroAgendamento int not null,
 dataAgendamento varchar(10) not null,
@@ -17,16 +15,12 @@ queixa varchar(150) not null,
 gravidade varchar(150) not null
 );
 
- 
-
 CREATE TABLE tbl_consulta(
 numeroConsulta int not null,
 dataConsulta varchar(10) not null,
 horaConsulta varchar(5) not null,
 agendamentoConsulta varchar(150) not null
 );
-
- 
 
 CREATE TABLE tbl_paciente(
 nomePaciente varchar(150) not null,
@@ -37,8 +31,6 @@ doencasPrevias varchar(150) not null,
 remedioDeUsoContinuo varchar(150) not null
 );
 
- 
-
 CREATE TABLE tbl_medico(
 nomeMedico varchar(150) not null,
 telefoneMedico int not null,
@@ -48,16 +40,12 @@ consultasMedico varchar(150) not null,
 especialidadesMedico varchar(150) not null
 );
 
- 
-
 INSERT INTO tbl_especialidade VALUES
 ('Cirurgião Geral', 145, 'Pessoas que necessitam de cirurgia'), 
 ('Pneumologista', 165,'Pessoas com doenças pulmonares'), 
 ('Pediatra', 325,'Crianças'), 
 ('Clínico geral', 875, 'Pessoas com algo anormal'),
 ('Ortopedista', 645, 'Pessoas com dores nos ossos e dores musculares');
-
- 
 
 INSERT INTO tbl_agendamento VALUES
 (14, '23/10/2023', '12:30' , 'Dor de cabeça','Não urgente'),
@@ -66,8 +54,6 @@ INSERT INTO tbl_agendamento VALUES
 (240, '23/01/2024', '08:20', 'Doença de Mão, Pé e Boca','Urgente'),
 (145, '15/01/2024', '16:50', 'Chikungunya','Urgente');
 
- 
-
 INSERT INTO tbl_consulta VALUES
 (1230, '23/10/2023', '12:30', 'Dor de cabeça'),
 (1587, '02/11/2023', '15:45', 'Perna quebrada'),
@@ -75,16 +61,12 @@ INSERT INTO tbl_consulta VALUES
 (1258, '23/01/2024', '08:20', 'Hanseníase'),
 (1465, '15/01/2024', '16:50', 'Chikungunya');
 
- 
-
 INSERT INTO tbl_paciente VALUES
 ('Richelle Souza','Rua Das Graças',11258749632,124,'Dores de cabeça contínua','Dipirona'),
 ('Paulo Rafael','Rua São Francisco',11987563584,365,'Dores no perna','Dorflex'),
 ('Fernando Silva','Rua da Felicidade',11258749874,147,'Câncer no pulmão','Carboplatina'),
 ('Enzo Carvalho','Rua do Prazer',11456328957,247,'Doença de Mão, Pé e Boca','Paracetamol'),
 ('Ryan Vitório','Rua da Bexiga',11456987532,498,'Chikungunya','Prednisona');
-
- 
 
 INSERT INTO tbl_medico VALUES
 ('Sebastian Carvalho',11985745623,'Rua das Famílias',658,'Perna quebrada','Cirurgião Geral'),

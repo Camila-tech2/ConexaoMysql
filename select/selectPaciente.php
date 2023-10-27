@@ -1,38 +1,30 @@
 <?php
-use app\libraries\Paciente;
     require '../conexao.php';
+    //require './Produto.php';
+    
+   
     $conexao = conectar();
-    require '../class/Paciente.php';
     
     $sql = "SELECT * FROM tbl_paciente";
-    $res = mysqli_query($conexao, $sql) or die("Erro ao tentar consultar");
-
-    // quantos itens existem na tabela 
-    $lin = mysqli_num_rows($res);
-
-    // número de linhas encontradas
-    echo "$lin registros encontrados";
-    echo "<BR>";
-    echo "<BR>";
-
-    $listaPaciente = [];
-    // Apresentar os registros
-    while ($registro = mysqli_fetch_array($res)) {
-        $numeroBeneficiario = $registro['numeroBeneficiario'];
-        $nomePaciente = $registro['nomePaciente'];
-        $enderecoPaciente = $registro['enderecoPaciente'];
-        $telefonePaciente = $registro['telefonePaciente'];
-        $doencasPrevias = $registro['doencasPrevias'];
-        $medioDeUsoContinuo = $registro['remedioDeUsoContinuo'];
-
-        $p = new Paciente($numeroBeneficiario,$nomePaciente,$enderecoPaciente,$telefonePaciente,$doencasPrevias,$medioDeUsoContinuo);
-
-        array_push($listaPaciente, $p);
+ 
+    // conexao e query
+    $res = mysqli_query($conexao, $sql) 
+        or die("Erro ao tentar consultar");
+ 
+    //$listaProdutos = [];
+    $data = [];
+ 
+    while ($row = mysqli_fetch_assoc($res)) {
+        // Use utf8_encode para codificar os valores do banco de dados
+        $row = array_map('utf8_encode', $row);
+        array_push($data, $row);
+        //$data[] = $row;
     }
+ 
+    $json = json_encode($data, JSON_UNESCAPED_UNICODE);
     
-    $lista_json = json_encode($listaPaciente);
-
-    fecharConexao($conexao);
-
-    echo $lista_json;
+    echo $json;
+   
+    
+ 
 ?>

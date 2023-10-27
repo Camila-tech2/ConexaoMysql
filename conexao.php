@@ -6,7 +6,7 @@
         $host = 'localhost';
         $usuario = 'root';
         $senha = '';
-        $bd = 'db_exemplo';
+        $bd = 'db_hospital';
 
         // realizar a conexão 
         $conection = mysqli_connect($host, $usuario, $senha, $bd);
