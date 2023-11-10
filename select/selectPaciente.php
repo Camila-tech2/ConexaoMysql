@@ -10,7 +10,9 @@
     // conexao e query
     $res = mysqli_query($conexao, $sql) 
         or die("Erro ao tentar consultar");
- 
+
+
+        
     //$listaProdutos = [];
     $data = [];
  

@@ -12,15 +12,36 @@
   </head>
   <body>
     
-  <form method="POST" action="http://localhost:8081/PW2/ConexaoMysql/insert/insert.php">
+  <form method="POST" action="./insert.php">
     <div class="form-group">
-        <label for="exampleInputEmail1">ID</label>
-        <input type="number" class="form-control" id="id_usuario" name="id_usuario" placeholder="Informe o id do usuário">
+        <label for="nome">Nome Completo</label>
+        <input type="text" class="form-control" id="nomePaciente" name="nomePaciente" placeholder="Informe o nome">
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">SENHA </label>
-        <input type="text" class="form-control" id="id_senha" name="senha_usuario" placeholder="Informe a senha do usuário com no máximo 8 digitos">
+        <label for="exampleInputEmail1">Senha </label>
+        <input type="text" class="form-control" id="senhaPaciente" name="senhaPaciente" placeholder="Informe a senha com no máximo 8 digitos">
     </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Endereço</label>
+        <input type="text" class="form-control" id="enderecoPaciente" name="enderecoPaciente" placeholder="Informe o endereço">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Telefone </label>
+        <input type="text" class="form-control" id="telefonePaciente" name="telefonePaciente" placeholder="Informe o telefone">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Número Beneficiário </label>
+        <input type="text" class="form-control" id="numeroBeneficiario" name="numeroBeneficiario" placeholder="Informe o Número Beneficiário">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Doenças Prévias </label>
+        <input type="text" class="form-control" id="doencasPrevias" name="doencasPrevias" placeholder="Informe a(s) Doenças Prévias">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Remédio de Uso Contínuo </label>
+        <input type="text" class="form-control" id="remedioDeUsoContinuo" name="remedioDeUsoContinuo" placeholder="Informe o(s) Remédio de Uso Contínuo">
+    </div>
+
   <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 
@@ -31,3 +52,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
+
