@@ -3,7 +3,7 @@ btn_get.addEventListener("click", _get);
 
 function _get(event) {
   event.preventDefault();
-  let url = "http://localhost/ConexaoMysql/select/selectPaciente.php";
+  let url = "./select/selectPaciente.php";
 
   fetch(url)
     .then(function (response) {
