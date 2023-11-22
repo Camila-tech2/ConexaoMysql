@@ -33,7 +33,7 @@ function _post(event) {
       remedioDeUsoContinuo: remedioDeUsoContinuo.value,
     };
 
-    let url = "http://localhost/ConexaoMysql/insert/insert.php";
+    let url = "./insert.php";
     fetch(url, {
       method: "POST",
       headers: {

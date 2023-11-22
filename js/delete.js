@@ -1,23 +1,26 @@
-// selecionei o botão
-var btn_delete = document.querySelector(".del");
+const btn_delete = document.querySelector(".del");
+const divLog = document.querySelector("#log");
+
+const id = document.querySelector("#id_usuario");
+
 btn_delete.addEventListener("click", _delete);
 
 function _delete(event) {
   event.preventDefault();
-  let produto = { id: 4226 };
+  let paciente = { id: id.value };
 
-  let url = "http://localhost/api_rest/back.php";
+  let url = "./delete.php";
   fetch(url, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(produto),
+    body: JSON.stringify(paciente),
   })
     .then(function (response) {
-      return response.json();
+      return response.text();
     })
     .then(function (response) {
-      console.log(response);
+      divLog.innerHTML = response;
     });
 }
