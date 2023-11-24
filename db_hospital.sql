@@ -1,15 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2023 at 11:59 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Tempo de geração: 24-Nov-2023 às 17:32
+-- Versão do servidor: 10.4.20-MariaDB
+-- versão do PHP: 8.0.9
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+CREATE DATABASE db_hospital;
+USE db_hospital;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -18,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_hospital`
+-- Banco de dados: `db_hospital`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_agendamento`
+-- Estrutura da tabela `tbl_agendamento`
 --
 
 CREATE TABLE `tbl_agendamento` (
@@ -33,10 +32,10 @@ CREATE TABLE `tbl_agendamento` (
   `horaAgendamento` varchar(5) NOT NULL,
   `queixa` varchar(150) NOT NULL,
   `gravidade` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_agendamento`
+-- Extraindo dados da tabela `tbl_agendamento`
 --
 
 INSERT INTO `tbl_agendamento` (`numeroAgendamento`, `dataAgendamento`, `horaAgendamento`, `queixa`, `gravidade`) VALUES
@@ -49,7 +48,7 @@ INSERT INTO `tbl_agendamento` (`numeroAgendamento`, `dataAgendamento`, `horaAgen
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_consulta`
+-- Estrutura da tabela `tbl_consulta`
 --
 
 CREATE TABLE `tbl_consulta` (
@@ -59,10 +58,10 @@ CREATE TABLE `tbl_consulta` (
   `agendamentoConsulta` varchar(150) NOT NULL,
   `pacienteConsulta` int(11) NOT NULL,
   `medicoConsulta` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_consulta`
+-- Extraindo dados da tabela `tbl_consulta`
 --
 
 INSERT INTO `tbl_consulta` (`numeroConsulta`, `dataConsulta`, `horaConsulta`, `agendamentoConsulta`, `pacienteConsulta`, `medicoConsulta`) VALUES
@@ -75,17 +74,17 @@ INSERT INTO `tbl_consulta` (`numeroConsulta`, `dataConsulta`, `horaConsulta`, `a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_especialidade`
+-- Estrutura da tabela `tbl_especialidade`
 --
 
 CREATE TABLE `tbl_especialidade` (
   `nomeEspecialidade` varchar(150) NOT NULL,
   `numeroRegistro` int(11) NOT NULL,
   `publicoAlvo` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_especialidade`
+-- Extraindo dados da tabela `tbl_especialidade`
 --
 
 INSERT INTO `tbl_especialidade` (`nomeEspecialidade`, `numeroRegistro`, `publicoAlvo`) VALUES
@@ -98,7 +97,7 @@ INSERT INTO `tbl_especialidade` (`nomeEspecialidade`, `numeroRegistro`, `publico
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_medico`
+-- Estrutura da tabela `tbl_medico`
 --
 
 CREATE TABLE `tbl_medico` (
@@ -108,10 +107,10 @@ CREATE TABLE `tbl_medico` (
   `crm` int(11) NOT NULL,
   `consultasMedico` varchar(150) NOT NULL,
   `especialidadesMedico` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_medico`
+-- Extraindo dados da tabela `tbl_medico`
 --
 
 INSERT INTO `tbl_medico` (`nomeMedico`, `telefoneMedico`, `enderecoMedico`, `crm`, `consultasMedico`, `especialidadesMedico`) VALUES
@@ -124,7 +123,7 @@ INSERT INTO `tbl_medico` (`nomeMedico`, `telefoneMedico`, `enderecoMedico`, `crm
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_paciente`
+-- Estrutura da tabela `tbl_paciente`
 --
 
 CREATE TABLE `tbl_paciente` (
@@ -136,38 +135,38 @@ CREATE TABLE `tbl_paciente` (
   `numeroBeneficiario` int(11) NOT NULL,
   `doencasPrevias` varchar(150) NOT NULL,
   `remedioDeUsoContinuo` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_paciente`
+-- Extraindo dados da tabela `tbl_paciente`
 --
 
 INSERT INTO `tbl_paciente` (`id`, `nomePaciente`, `senhaPaciente`, `enderecoPaciente`, `telefonePaciente`, `numeroBeneficiario`, `doencasPrevias`, `remedioDeUsoContinuo`) VALUES
-(1, 'Richelle Souza', '', 'Rua Das Graças', 2147483647, 124, 'Dores de cabeça contínua', 'Dipirona'),
-(2, 'Paulo Rafael', '', 'Rua São Francisco', 2147483647, 365, 'Dores no perna', 'Dorflex'),
-(3, 'Fernando Silva', '', 'Rua da Felicidade', 2147483647, 147, 'Câncer no pulmão', 'Carboplatina'),
-(4, 'Enzo Carvalho', '', 'Rua do Prazer', 2147483647, 247, 'Doença de Mão, Pé e Boca', 'Paracetamol'),
-(5, 'Ryan Vitório', '', 'Rua da Bexiga', 2147483647, 498, 'Chikungunya', 'Prednisona');
+(1, 'Richelle Souza', 'richellesouza12', 'Rua Das Graças', 2147483647, 124, 'Dores de cabeça contínua', 'Dipirona'),
+(2, 'Paulo Rafael', 'paulorafael12', 'Rua São Francisco', 2147483647, 365, 'Dores no perna', 'Dorflex'),
+(3, 'Fernando Silva', 'fernandosilva12', 'Rua da Felicidade', 2147483647, 147, 'Câncer no pulmão', 'Carboplatina'),
+(4, 'Enzo Carvalho', 'anzocarvalho12', 'Rua do Prazer', 2147483647, 247, 'Doença de Mão, Pé e Boca', 'Paracetamol'),
+(23, 'Danilo Lima', 'danilolima', 'danilolima', 1212121212, 1212, 'danilolima', 'danilolima');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `tbl_paciente`
+-- Índices para tabela `tbl_paciente`
 --
 ALTER TABLE `tbl_paciente`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `tbl_paciente`
+-- AUTO_INCREMENT de tabela `tbl_paciente`
 --
 ALTER TABLE `tbl_paciente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
