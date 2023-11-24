@@ -1,15 +1,24 @@
-var btn_get = document.querySelector(".get");
-btn_get.addEventListener("click", _get);
+var getTable = document.querySelector("#get");
 
-function _get(event) {
-  event.preventDefault();
-  let url = "./select/selectPaciente.php";
+let url = "./selectPaciente.php";
+fetch(url)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (dados) {
+    for (var i = 0; i < dados.length; i++) {
+      getTable.innerHTML += `
+      <tr>
+        <th scope="row">${dados[i]["id"]}</th>
+        <td>${dados[i]["nomePaciente"]}</td>
+        <td>${dados[i]["enderecoPaciente"]}</td>
+        <td>${dados[i]["telefonePaciente"]}</td>
+        <td>${dados[i]["numeroBeneficiario"]}</td>
+        <td>${dados[i]["doencasPrevias"]}</td>
+        <td>${dados[i]["remedioDeUsoContinuo"]}</td>
+      </tr>
+      `;
+    }
 
-  fetch(url)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (response) {
-      console.log(response);
-    });
-}
+    console.log(dados);
+  });
